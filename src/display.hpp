@@ -36,6 +36,28 @@ std::string to_string(const T& t)
             return "\033[32m" + to_string(t) + "\033[0m";
         }
 
+        std::string yellow(const std::string& s)
+        {
+            return "\033[33m" + s + "\033[0m";
+        }
+
+        template<typename T>
+        std::string yellow(const T& t)
+        {
+            return "\033[33m" + to_string(t) + "\033[0m";
+        }
+
+        std::string blue(const std::string& s)
+        {
+            return "\033[34m" + s + "\033[0m";
+        }
+
+        template<typename T>
+        std::string blue(const T& t)
+        {
+            return "\033[34m" + to_string(t) + "\033[0m";
+        }
+
         std::string white(const std::string& s)
         {
             return "\033[37m" + s + "\033[0m";
@@ -46,6 +68,7 @@ std::string to_string(const T& t)
         {
             return "\033[37m" + to_string(t) + "\033[0m";
         }
+
 
 void bar()
 {
