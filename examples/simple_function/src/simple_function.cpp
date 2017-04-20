@@ -14,14 +14,11 @@ int main()
     // double x = -12.46;
     double x = -1e3;
 
-    auto f = [](double x){ return 5.0 * std::cos(0.25 * x) + x * (x / 750.0); };
+    auto f = [](double x){ return x * (x - 1); };
 
     // auto gen = [&](double x, SimulatedAnnealing& s){ return x + distrib(generator);};
     // auto gen = [&](double x, const SimulatedAnnealing& s){ return x + s.current_it * distrib(generator);};
-    auto gen = [&](double x, const SimulatedAnnealing& s){
-            return   x 
-                   + (0.01 * s.current_temperature) * s.current_it * distrib(generator);
-        };
+    auto gen = [&](double x, const SimulatedAnnealing& s){ return x + s.current_temperature * distrib(generator); };
 
     std::cout << "initial value: " << x << " (err: " << f(x) << ")" << std::endl;
 
