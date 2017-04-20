@@ -11,7 +11,7 @@ struct Parameters
 
 double cost_function(const Parameters& p)
 {
-    return p.x * (p.x - 1);
+    return 5.0 * std::cos(0.25 * p.x) + p.x * (p.x / 750.0);
 }
 
 struct Energy
@@ -31,7 +31,9 @@ struct Generator
         std::normal_distribution<> distrib(0, 1.0);
 
         // return Parameters{p.x + distrib(generator)};
-        return Parameters{p.x + 0.01 * s.current_temperature * distrib(generator)};
+        // return Parameters{p.x + 0.01 * s.current_temperature * distrib(generator)};
+        // return Parameters{p.x + s.current_temperature * distrib(generator)};
+        return Parameters{p.x + s.current_temperature * s.current_it * distrib(generator)};
     }
 };
 
