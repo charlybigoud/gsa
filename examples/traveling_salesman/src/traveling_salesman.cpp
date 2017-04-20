@@ -1,7 +1,7 @@
 #include <iostream>
 #include <random>
 
-#include "../src/simulated_annealing.hpp"
+#include <simulated_annealing.hpp>
 
 int main()
 {

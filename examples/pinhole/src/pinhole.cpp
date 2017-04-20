@@ -1,9 +1,10 @@
 #include <iostream>
 #include <random>
 
-#include "../points.hpp"
-#include "../camera.hpp"
-#include "../src/simulated_annealing.hpp"
+#include <simulated_annealing.hpp>
+
+#include "points.hpp"
+#include "camera.hpp"
 
 double cost_function(const Observations& observations, const PinholeCameraModel& model)
 {

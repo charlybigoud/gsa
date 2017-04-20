@@ -1,7 +1,7 @@
 #include <iostream>
 #include <random>
 
-#include "../src/simulated_annealing.hpp"
+#include <simulated_annealing.hpp>
 
 //parameters to optimize
 struct Parameters
