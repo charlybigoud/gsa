@@ -4,17 +4,15 @@
 #include <iomanip>
 #include <string.h>
 
-// void bar();
 // void print(const int it, const double energy);
-// std::string red(const std::string&);
 
 template<typename T>
 std::string to_string(const T& t)
 {
-    return std::to_string(t);
+    std::ostringstream strs;
+    strs << std::scientific << std::setprecision(3) << t;
+    return strs.str();
 }
-
-std::string red(const std::string& s);
 
 template<typename T>
 std::string red(const T& t)
@@ -22,15 +20,11 @@ std::string red(const T& t)
     return "\033[31m" + to_string(t) + "\033[0m";
 }
 
-std::string green(const std::string& s);
-
 template<typename T>
 std::string green(const T& t)
 {
     return "\033[32m" + to_string(t) + "\033[0m";
 }
-
-std::string yellow(const std::string& s);
 
 template<typename T>
 std::string yellow(const T& t)
@@ -38,21 +32,23 @@ std::string yellow(const T& t)
     return "\033[33m" + to_string(t) + "\033[0m";
 }
 
-std::string blue(const std::string& s);
-
 template<typename T>
 std::string blue(const T& t)
 {
     return "\033[34m" + to_string(t) + "\033[0m";
 }
 
-std::string white(const std::string& s);
-
 template<typename T>
 std::string white(const T& t)
 {
     return "\033[37m" + to_string(t) + "\033[0m";
 }
+
+std::string red(const std::string& s);
+std::string green(const std::string& s);
+std::string yellow(const std::string& s);
+std::string blue(const std::string& s);
+std::string white(const std::string& s);
 
 void bar();
 
@@ -84,7 +80,6 @@ void print(
     // std::cout << green(s.current_it) << "\t";
     std::cout << green(s.current_temperature) << "\t";
     std::cout << green(s.current_temperature - s.temperature()) << "\t";
-    // std::cout << std::hexfloat << std::setprecision(3) << green(s.current_energy) << "\t";
     std::cout << green(s.current_energy) << "\t";
     // // std::cout << s.d_energy << "\t";
     std::cout << std::endl;
@@ -99,7 +94,6 @@ void print(
     // std::cout << red(s.current_it) << "\t";
     std::cout << red(s.current_temperature) << "\t";
     std::cout << red(s.current_temperature - s.temperature()) << "\t";
-    // std::cout << std::hexfloat << std::setprecision(3) << red(s.current_energy) << "\t";
     std::cout << red(s.current_energy) << "\t";
     // // std::cout << s.d_energy << "\t";
 
