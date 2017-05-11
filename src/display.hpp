@@ -14,68 +14,47 @@ std::string to_string(const T& t)
     return std::to_string(t);
 }
 
-        std::string red(const std::string& s)
-        {
-            return "\033[31m" + s + "\033[0m";
-        }
+std::string red(const std::string& s);
 
-        template<typename T>
-        std::string red(const T& t)
-        {
-            return "\033[31m" + to_string(t) + "\033[0m";
-        }
-
-        std::string green(const std::string& s)
-        {
-            return "\033[32m" + s + "\033[0m";
-        }
-
-        template<typename T>
-        std::string green(const T& t)
-        {
-            return "\033[32m" + to_string(t) + "\033[0m";
-        }
-
-        std::string yellow(const std::string& s)
-        {
-            return "\033[33m" + s + "\033[0m";
-        }
-
-        template<typename T>
-        std::string yellow(const T& t)
-        {
-            return "\033[33m" + to_string(t) + "\033[0m";
-        }
-
-        std::string blue(const std::string& s)
-        {
-            return "\033[34m" + s + "\033[0m";
-        }
-
-        template<typename T>
-        std::string blue(const T& t)
-        {
-            return "\033[34m" + to_string(t) + "\033[0m";
-        }
-
-        std::string white(const std::string& s)
-        {
-            return "\033[37m" + s + "\033[0m";
-        }
-
-        template<typename T>
-        std::string white(const T& t)
-        {
-            return "\033[37m" + to_string(t) + "\033[0m";
-        }
-
-
-void bar()
+template<typename T>
+std::string red(const T& t)
 {
-    // std::cout << "it\tT\tDT\tE\tDE" << std::endl;
-    std::cout << "T\tDT\tE\tDE" << std::endl;
-    std::cout << std::string(60, '-') << std::endl;
+    return "\033[31m" + to_string(t) + "\033[0m";
 }
+
+std::string green(const std::string& s);
+
+template<typename T>
+std::string green(const T& t)
+{
+    return "\033[32m" + to_string(t) + "\033[0m";
+}
+
+std::string yellow(const std::string& s);
+
+template<typename T>
+std::string yellow(const T& t)
+{
+    return "\033[33m" + to_string(t) + "\033[0m";
+}
+
+std::string blue(const std::string& s);
+
+template<typename T>
+std::string blue(const T& t)
+{
+    return "\033[34m" + to_string(t) + "\033[0m";
+}
+
+std::string white(const std::string& s);
+
+template<typename T>
+std::string white(const T& t)
+{
+    return "\033[37m" + to_string(t) + "\033[0m";
+}
+
+void bar();
 
 // template<typename Solver, typename Color>
 // template<typename Solver, typename T, typename Color = std::string (*Color)(T&)>
