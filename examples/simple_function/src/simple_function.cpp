@@ -11,7 +11,6 @@ int main()
 
     SimulatedAnnealing sim(1e4, 1e-3, int(1e3));
 
-    // double x = -12.46;
     double x = -1e3;
 
     auto f = [](double x){ return x * (x - 1); };
