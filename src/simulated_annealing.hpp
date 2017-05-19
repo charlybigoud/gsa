@@ -70,21 +70,16 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
             state = current_state;
             previous_energy = current_energy;
 
-            // print<double, green>(*this);
             print(*this, Accepted{});
 
         }
         else
         {
-            // print<double, red>(*this);
             // print(*this, Rejected{});
         }
 
         if (current_it > iterations_per_temperature)
         {
-            // std::cout << iterations_per_temperature << "\n";
-            // std::cout << current_it << "\n";
-
             current_temperature = temperature();
             current_it = 0;
         }
