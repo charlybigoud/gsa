@@ -34,7 +34,7 @@ struct SimulatedAnnealing
 
     double random_value();
 
-    bool metropolisCritieria(const double delta_e, const double temperature);
+    bool metropolis_critieria(const double delta_e, const double temperature);
 
     double temperature() const;
 
@@ -65,7 +65,7 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
         const State current_state = generate(state, *this);
         current_energy = energy(current_state);
 
-        if (metropolisCritieria(current_energy - previous_energy, current_temperature))
+        if (metropolis_critieria(current_energy - previous_energy, current_temperature))
         {
             state = current_state;
             previous_energy = current_energy;

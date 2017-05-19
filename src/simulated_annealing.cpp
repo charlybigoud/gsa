@@ -15,7 +15,7 @@ double SimulatedAnnealing::random_value()
     return double(std::rand()) / double(RAND_MAX);
 }
 
-bool SimulatedAnnealing::metropolisCritieria(const double delta_e, const double temperature)
+bool SimulatedAnnealing::metropolis_critieria(const double delta_e, const double temperature)
 {
     if (delta_e <= 0)
         return true;
