@@ -82,7 +82,12 @@ void print(
     std::cout << green(s.current_temperature - s.temperature()) << "\t";
     std::cout << green(s.current_energy) << "\t";
     // // std::cout << s.d_energy << "\t";
-    std::cout << std::endl;
+
+    std::cout << "\n\r\e[A";
+    std::cout << std::string(100, ' ');
+    std::cout << "\r";
+
+    // std::cout << "\n\r\e[A";
 }
 
 template<typename Solver>
@@ -97,8 +102,9 @@ void print(
     std::cout << red(s.current_energy) << "\t";
     // // std::cout << s.d_energy << "\t";
 
-    // std::cout << std::string(60, '\b');
-    std::cout << std::endl;
+    std::cout << "\n\r\e[A";
+    std::cout << std::string(100, ' ');
+    std::cout << "\r";
 }
 
 template<typename Solver>
