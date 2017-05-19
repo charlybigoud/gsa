@@ -1,7 +1,11 @@
 #include "simulated_annealing.hpp"
 
-SimulatedAnnealing::SimulatedAnnealing(double start_tmp, double stop_tmp, int it_max, double min_e
-    //, double tol = 0.1
+SimulatedAnnealing::SimulatedAnnealing(
+      const double start_tmp
+    , const double stop_tmp
+    , const int it_max
+    , const double min_e
+    // , const double tol
 ) :
   start_temperature(start_tmp)
 , stop_temperature(stop_tmp)

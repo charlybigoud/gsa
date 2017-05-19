@@ -30,7 +30,13 @@ struct SimulatedAnnealing
     int current_it;
     double current_energy;
 
-    SimulatedAnnealing(double start_tmp = 1e3, double stop_tmp = 0.0, int it_max = 1000, double min_e = 0.0);
+    SimulatedAnnealing(
+          const double start_tmp = 1e3
+        , const double stop_tmp = 0.0
+        , const int it_max = 1000
+        , const double min_e = 0.0
+        // , const double tol = 0.1
+    );
 
     double random_value();
 
