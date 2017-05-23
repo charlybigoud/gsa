@@ -29,6 +29,7 @@ struct SimulatedAnnealing
     double current_temperature;
     int current_it;
     double current_energy;
+    double validated_energy;
 
     SimulatedAnnealing(
           const double start_tmp = 1e3
@@ -58,8 +59,8 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
     //initiate system
     current_it = 0;
     current_temperature = start_temperature;
-    double previous_energy = energy(state);
-    current_energy = previous_energy;
+    validated_energy = energy(state);
+    current_energy = validated_energy;
 
     bar();
 
@@ -71,13 +72,12 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
         const State current_state = generate(state, *this);
         current_energy = energy(current_state);
 
-        if (metropolis_critieria(current_energy - previous_energy, current_temperature))
+        if (metropolis_critieria(current_energy - validated_energy, current_temperature))
         {
             state = current_state;
-            previous_energy = current_energy;
+            validated_energy = current_energy;
 
             print(*this, Accepted{});
-
         }
         else
         {

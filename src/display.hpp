@@ -80,7 +80,7 @@ void print(
     // std::cout << green(s.current_it) << "\t";
     std::cout << green(s.current_temperature) << "\t";
     std::cout << green(s.current_temperature - s.temperature()) << "\t";
-    std::cout << green(s.current_energy) << "\t";
+    std::cout << green(s.validated_energy) << "\t";
     // // std::cout << s.d_energy << "\t";
 
     std::cout << "\n\r\e[A";
@@ -112,6 +112,6 @@ void final_print(const Solver& s)
 {
     std::cout << std::endl;
     std::cout << "Final temperature: " << s.current_temperature << "\n";
-    std::cout << "Final energy: " << s.current_energy << "\n";
+    std::cout << "Final energy: " << s.validated_energy << "\n";
     std::cout << std::endl;
 }
