@@ -27,7 +27,6 @@ std::string white(const std::string& s)
 
 void bar()
 {
-    // std::cout << "it\tT\tDT\tE\tDE" << std::endl;
-    std::cout << "T\tDT\tE\tDE" << std::endl;
-    std::cout << std::string(60, '-') << std::endl;
+    std::cout << "\tT\t\tDT\t\tE" << std::endl;
+    std::cout << std::string(42, '-') << std::endl;
 }
