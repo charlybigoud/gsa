@@ -10,7 +10,7 @@ install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
 
 script:
-  - cmake CMakeLists.txt
+  - cmake -DCMAKE_CXX_COMPILER=g++-5
   - make
   - ./examples/simple_function/simple_function
   - ./examples/pinhole/pinhole
