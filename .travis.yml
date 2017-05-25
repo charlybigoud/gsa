@@ -1,6 +1,6 @@
 language: cpp
 compiler:
-  - gcc
+  - gcc-5
 os:
   - linux
 addons:
