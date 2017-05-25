@@ -1,0 +1,15 @@
+language: cpp
+compiler:
+  - gcc
+os:
+  - linux
+addons:
+  - cmake
+  - make
+install:
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
+
+script:
+  - cmake CMakeLists.txt
+  - make
+  - ./examples/simple_function/simple_function
