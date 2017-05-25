@@ -8,10 +8,13 @@ os:
 addons:
   - cmake
   - make
+  apt:
+    packages:
+      - g++-5
+    sources:
+      - ubuntu-toolchain-r/test
 install:
-  - sudo apt install g++-5
   - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
-
 script:
   - cmake -DCMAKE_CXX_COMPILER=g++-5
   - make
