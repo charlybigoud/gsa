@@ -13,3 +13,4 @@ script:
   - cmake CMakeLists.txt
   - make
   - ./examples/simple_function/simple_function
+  - ./examples/pinhole/pinhole
