@@ -6,6 +6,8 @@ os:
 addons:
   - cmake
   - make
+before_install:
+  sudo apt install g++-5
 install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
 
