@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 2.8)
 
 project (gsa)
 
-add_definitions(-std=gnu++11 -O3)
+add_definitions(-std=c++1y -O3)
 
 add_subdirectory (src)
 
