@@ -22,5 +22,6 @@ before_install:
 script:
   - mkdir build
   - cd build
-  - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_COMPILER=g++-5 ..
+  # - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_COMPILER=g++-5 ..
+  - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
   - make -j
