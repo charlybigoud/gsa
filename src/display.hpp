@@ -4,8 +4,6 @@
 #include <iomanip>
 #include <string.h>
 
-// void print(const int it, const double energy);
-
 template<typename T>
 std::string to_string(const T& t)
 {
@@ -53,60 +51,44 @@ std::string white(const std::string& s);
 void bar();
 void blank_line();
 
-// template<typename Solver, typename Color>
-// template<typename Solver, typename T, typename Color = std::string (*Color)(T&)>
-// template<typename T, std::string (*Color)(const T&), typename Solver>
-// void print(
-//       const Solver& s
-//     // , const Color& c
-//     )
-// {
-//     std::cout << Color(s.current_it) << "\t";
-//     std::cout << Color(s.current_temperature) << "\t";
-//     std::cout << Color(s.current_temperature - s.temperature(s.current_temperature)) << "\t";
-//     std::cout << Color(s.current_energy) << "\t";
-//     // // std::cout << s.d_energy << "\t";
-//     std::cout << std::endl;
-// }
-
-struct Accepted{};
-struct Rejected{};
-
-template<typename Solver>
-void print(
-      const Solver& s
-    , Accepted
-    )
+struct Accepted
 {
-    // std::cout << green(s.current_it) << "\t";
-    std::cout << green(s.current_temperature) << "\t";
-    std::cout << green(s.current_temperature - s.temperature()) << "\t";
-    std::cout << green(s.validated_energy) << "\t";
-    // // std::cout << s.d_energy << "\t";
+    template<typename T>
+    std::string operator()(const T& s)
+    {
+        return green(s);
+    };
+};
 
-    std::cout << "\r";
-}
-
-template<typename Solver>
-void print(
-      const Solver& s
-    , Rejected
-    )
+struct Rejected
 {
-    // std::cout << red(s.current_it) << "\t";
-    std::cout << red(s.current_temperature) << "\t";
-    std::cout << red(s.current_temperature - s.temperature()) << "\t";
-    std::cout << red(s.current_energy) << "\t";
-    // // std::cout << s.d_energy << "\t";
+    template<typename T>
+    std::string operator()(const T& s)
+    {
+        return red(s);
+    };
+};
 
-    std::cout << "\r";
+template<typename Color, typename Solver>
+void print(
+  Color c
+, const Solver& s
+)
+{
+    blank_line();
+
+    // std::cout << c(s.current_it) << "\t";
+    std::cout << c(s.current_temperature) << "\t";
+    std::cout << c(s.current_temperature - s.temperature()) << "\t";
+    std::cout << c(s.validated_energy) << "\t";
+    // std::cout << s.d_energy << "\t";
 }
 
 template<typename Solver>
 void final_print(const Solver& s)
 {
-    std::cout << std::endl;
+    std::cout << '\n' << std::endl;
     std::cout << "Final temperature: " << s.current_temperature << "\n";
     std::cout << "Final energy: " << s.validated_energy << "\n";
-    std::cout << std::endl;
+    std::cout << '\n' << std::endl;
 }

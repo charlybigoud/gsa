@@ -27,9 +27,9 @@ std::string white(const std::string& s)
 
 void bar()
 {
-    std::cout << "\tT\t\tDT\t\tE" << std::endl;
-    std::cout << std::string(42, '-') << std::endl;
-}void blank_line()
+    std::cout << yellow("\tT\t\tDT\t\tE") << std::endl;
+    std::cout << yellow(std::string(42, '-')) << std::endl;
+}
 
 void blank_line()
 {

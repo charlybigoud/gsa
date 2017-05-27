@@ -77,12 +77,12 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
             state = current_state;
             validated_energy = current_energy;
 
-            print(*this, Accepted{});
+            print(Accepted{}, *this);
         }
-        else
-        {
-            // print(*this, Rejected{});
-        }
+        // else
+        // {
+        //     print(Rejected{}, *this);
+        // }
 
         if (current_it > iterations_per_temperature)
         {
