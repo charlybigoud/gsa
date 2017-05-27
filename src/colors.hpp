@@ -4,39 +4,34 @@
 
 #include "utils.hpp"
 
-template<typename T>
-std::string red(const T& t)
+struct Default{ const std::string value = "39"; };
+
+struct Black{ const std::string value = "30"; };
+struct Red{ const std::string value = "31"; };
+struct Green{ const std::string value = "32"; };
+struct Yellow{ const std::string value = "33"; };
+struct Blue{ const std::string value = "34"; };
+struct Magenta{ const std::string value = "35"; };
+struct Cyan{ const std::string value = "36"; };
+struct LightGray{ const std::string value = "37"; };
+
+struct DarkGray{ const std::string value = "90"; };
+
+struct LightRed{ const std::string value = "91"; };
+struct LightGreen{ const std::string value = "92"; };
+struct LightYellow{ const std::string value = "93"; };
+struct LightBlue{ const std::string value = "94"; };
+struct LightMagenta{ const std::string value = "95"; };
+struct LightCyan{ const std::string value = "96"; };
+
+template<typename Color>
+std::string color(const std::string& s)
 {
-    return "\033[31m" + to_string(t) + "\033[0m";
+    return "\033[" + Color{}.value + "m" + s + "\033[0m";
 }
 
-template<typename T>
-std::string green(const T& t)
+template<typename Color, typename T>
+std::string color(const T& t)
 {
-    return "\033[32m" + to_string(t) + "\033[0m";
+    return color<Color>( to_string(t) );
 }
-
-template<typename T>
-std::string yellow(const T& t)
-{
-    return "\033[33m" + to_string(t) + "\033[0m";
-}
-
-template<typename T>
-std::string blue(const T& t)
-{
-    return "\033[34m" + to_string(t) + "\033[0m";
-}
-
-template<typename T>
-std::string white(const T& t)
-{
-    return "\033[37m" + to_string(t) + "\033[0m";
-}
-
-std::string red(const std::string& s);
-std::string green(const std::string& s);
-std::string yellow(const std::string& s);
-std::string blue(const std::string& s);
-std::string white(const std::string& s);
-

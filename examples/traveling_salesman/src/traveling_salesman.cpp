@@ -16,10 +16,10 @@ int main()
         , 1e-4      //energy min
         );
 
-    std::cout << red(std::string("\nNothing is done here")) << std::endl;
-    std::cout << blue(std::string(";( :( :@")) << std::endl;
-    std::cout << green(std::string("Please come back later")) << std::endl;
-    std::cout << yellow(std::string(";) :) :D")) << std::endl;
+    std::cout << color<Red>(std::string("\nNothing is done here")) << std::endl;
+    std::cout << color<Blue>(std::string(";( :( :@")) << std::endl;
+    std::cout << color<Green>(std::string("Please come back later")) << std::endl;
+    std::cout << color<Yellow>(std::string(";) :) :D")) << std::endl;
 
-    return 0;   
+    return 0;
 }
