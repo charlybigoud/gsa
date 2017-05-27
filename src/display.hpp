@@ -51,6 +51,7 @@ std::string blue(const std::string& s);
 std::string white(const std::string& s);
 
 void bar();
+void blank_line();
 
 // template<typename Solver, typename Color>
 // template<typename Solver, typename T, typename Color = std::string (*Color)(T&)>
