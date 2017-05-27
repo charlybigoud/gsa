@@ -4,4 +4,4 @@ project(pinhole)
 
 add_executable(pinhole src/pinhole.cpp)
 
-target_link_libraries(pinhole simulated_annealing display)
+target_link_libraries(pinhole gsa)

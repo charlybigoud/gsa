@@ -4,4 +4,4 @@ project(rosenbrock)
 
 add_executable(rosenbrock src/rosenbrock.cpp)
 
-target_link_libraries(rosenbrock simulated_annealing display)
+target_link_libraries(rosenbrock gsa)

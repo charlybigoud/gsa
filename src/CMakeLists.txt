@@ -1,7 +1,5 @@
-cmake_minimum_required (VERSION 2.8)
+cmake_minimum_required(VERSION 2.8)
 
-add_library (simulated_annealing simulated_annealing.cpp)
-add_library (display display.cpp)
+add_library(gsa simulated_annealing.cpp display.cpp)
 
-target_include_directories (simulated_annealing PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_include_directories (display PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(gsa PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
