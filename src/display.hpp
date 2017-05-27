@@ -70,17 +70,14 @@ struct Rejected
 };
 
 template<typename Color, typename Solver>
-void print(
-  Color c
-, const Solver& s
-)
+void print(const Solver& s)
 {
     blank_line();
 
-    // std::cout << c(s.current_it) << "\t";
-    std::cout << c(s.current_temperature) << "\t";
-    std::cout << c(s.current_temperature - s.temperature()) << "\t";
-    std::cout << c(s.validated_energy) << "\t";
+    // std::cout << Color{}(s.current_it) << "\t";
+    std::cout << Color{}(s.current_temperature) << "\t";
+    std::cout << Color{}(s.current_temperature - s.temperature()) << "\t";
+    std::cout << Color{}(s.validated_energy) << "\t";
     // std::cout << s.d_energy << "\t";
 }
 
