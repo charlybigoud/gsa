@@ -95,5 +95,5 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
         }
     }
 
-    final_print(*this);
+    print(Final{}, *this);
 }

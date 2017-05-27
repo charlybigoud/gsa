@@ -69,6 +69,15 @@ struct Rejected
     };
 };
 
+struct Final
+{
+    template<typename T>
+    std::string operator()(const T& s)
+    {
+        return blue(s);
+    };
+};
+
 template<typename Color, typename Solver>
 void print(const Solver& s)
 {
@@ -82,10 +91,10 @@ void print(const Solver& s)
 }
 
 template<typename Solver>
-void final_print(const Solver& s)
+void print(Final f, const Solver& s)
 {
     std::cout << '\n' << std::endl;
-    std::cout << "Final temperature: " << s.current_temperature << "\n";
-    std::cout << "Final energy: " << s.validated_energy << "\n";
+    std::cout << f("Final temperature: ") << f(s.current_temperature) << "\n";
+    std::cout << f("Final energy: ") << f(s.validated_energy) << "\n";
     std::cout << '\n' << std::endl;
 }
