@@ -26,6 +26,8 @@ before_install:
 install:
   # cmake
   - sudo apt-get -qq install cmake
+  # stl 5
+  - sudo apt-get -qq install libstdc++5
   # g++-5
   - if [ "$CXX" = "g++" ]; then sudo apt-get -qq install gcc-5 g++-5; fi
   - if [ "$CXX" = "g++" ]; then export CC="gcc-5" CXX="g++-5"; fi
