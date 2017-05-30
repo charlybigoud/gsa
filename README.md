@@ -1,7 +1,8 @@
 # Generic Simulated Annealing #
-gsa is an C++ optimization library based on the simulated annealing algorithm. This code was develop following the algorithm's description the [wikipedia page](https://en.wikipedia.org/wiki/Simulated_annealing).
+gsa is an C++ optimization library based on the simulated annealing algorithm. This code was develop following the algorithm's description in the [wikipedia page](https://en.wikipedia.org/wiki/Simulated_annealing).
 
 ## Dependencies ##
+* linux
 * g++ >= 5.1
 * C++14 (`-std=c++1y`).
 
