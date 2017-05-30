@@ -40,8 +40,8 @@ struct Generator
               p.focal + s.current_it * distrib(gen)
             , p.u0 + s.current_it * distrib(gen)
             , p.v0 + s.current_it * distrib(gen)
-            // , p.k + 1e-2 * distrib(gen)
-            // , p.l + 1e-2 * distrib(gen)
+            , p.k + 1e-5 * distrib(gen)
+            , p.l + 1e-5 * distrib(gen)
         };
     }
 };
@@ -52,35 +52,32 @@ int main()
     std::mt19937 g(rd());
     std::normal_distribution<> distrib(0, 10.0);
 
-    SimulatedAnnealing sim(1e5, 1e-3, int(1e3));
-
     PinholeCameraModel reference_camera{200.0, 400.0, 400.0, 1.0, 1.0};
 
     //Creating observations
     Observations observations;
 
-    for (int p=0; p<100; ++p)
+    for (double p = 0; p < 100.0; ++p)
     {
-        observations.p3ds.emplace_back( double(p*distrib(g)), double(p*distrib(g)), 100.0);
+        observations.p3ds.emplace_back( p * distrib(g), p * distrib(g), 100.0);
     }
     // for (auto& p : observations.p3ds)
     //     std::cout << p << "\n";
 
-
     observations.pixels.resize(observations.p3ds.size());
-    for (size_t i=0; i<observations.pixels.size(); ++i)
+    for (size_t i = 0; i < observations.pixels.size(); ++i)
         observations.pixels[i] = reference_camera.project(observations.p3ds[i]);
     // for (auto& p : observations.pixels)
     //     std::cout << p << "\n";
 
     PinholeCameraModel camera_to_optimize;
-    // PinholeCameraModel camera_to_optimize{200.0, 400.0, 400.0, 1.0, 1.0};
     Energy energy{observations};
     Generator gen;
 
-    std::cout << "initial state: " << camera_to_optimize << std::endl;
+    std::cout << "initial state:\n" << camera_to_optimize << std::endl;
 
+    SimulatedAnnealing sim(1e6, 1e-3, int(1e4));
     sim(energy, camera_to_optimize, gen);
 
-    std::cout << "final state: " << camera_to_optimize << std::endl;
+    std::cout << "final state:\n" << camera_to_optimize << std::endl;
 }

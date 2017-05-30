@@ -6,13 +6,22 @@ template<typename T, int S> struct PT
 {
     T data[S];
 
-    template<typename ... X> PT(X ... t) : data{ T(t)... } {}
+    template<typename ... X> PT(X ... t)
+    : data{ T(t)... }
+    {}
 
-    PT() {}
+    PT(){}
 
+    template<int I> T& at()
+    {
+        static_assert(S > I,"Error: PT::at() out of range.");
+        return data[I];
+    }
 
-    template<int I> T& at() { static_assert(S>I,"NiQ La Peau LisSe."); return data[I];}
-    template<int I> T const& at() const { static_assert(S>I,"NiQ La Peau LisSe."); return data[I];}
+    template<int I> T const& at() const
+    {
+        static_assert(S > I,"Error: PT::at() out of range."); return data[I];
+    }
 
     T & x() { return at<0>(); }
     T & y() { return at<1>(); }
