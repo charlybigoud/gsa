@@ -37,9 +37,9 @@ struct Generator
         std::normal_distribution<> distrib(0, 1.0);
 
         return PinholeCameraModel{
-              p.focal + s.current_it * distrib(gen)
-            , p.u0 + s.current_it * distrib(gen)
-            , p.v0 + s.current_it * distrib(gen)
+              p.focal + s.step_it * distrib(gen)
+            , p.u0 + s.step_it * distrib(gen)
+            , p.v0 + s.step_it * distrib(gen)
             , p.k + 1e-5 * distrib(gen)
             , p.l + 1e-5 * distrib(gen)
         };

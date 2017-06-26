@@ -31,8 +31,8 @@ bool SimulatedAnnealing::metropolis_critieria(const double delta_e, const double
 
 double SimulatedAnnealing::temperature() const
 {
-    // assert(current_it >= iterations_per_temperature);
-    // return ( double(current_it) / double(iterations_per_temperature)) * current_temperature;
+    // assert(step_it <= iterations_per_temperature);
+    // return ( double(step_it) / double(iterations_per_temperature)) * current_temperature;
 
     return 0.99 * current_temperature;
 }

@@ -16,7 +16,7 @@ int main()
     auto f = [](double x){ return x * (x - 1); };
 
     // auto gen = [&](double x, SimulatedAnnealing& s){ return x + distrib(generator);};
-    // auto gen = [&](double x, const SimulatedAnnealing& s){ return x + s.current_it * distrib(generator);};
+    // auto gen = [&](double x, const SimulatedAnnealing& s){ return x + s.step_it * distrib(generator);};
     auto gen = [&](double x, const SimulatedAnnealing& s){ return x + s.current_temperature * distrib(generator); };
 
     std::cout << "initial value: " << x << " (err: " << f(x) << ")" << std::endl;

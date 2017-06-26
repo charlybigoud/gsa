@@ -44,11 +44,11 @@ int main()
         //     , r.y + distrib(generator)
         // };
 
-        //generator depending on current_it
-        // std::cout << (1e3 / (double(s.current_it))) << "\n";
+        //generator depending on step_it
+        // std::cout << (1e3 / (double(s.step_it))) << "\n";
         // return Parameters{
-        //       r.x + 1e3 / (double(s.current_it) != 0 ? double(s.current_it) : 1.0) * distrib(generator)
-        //     , r.y + 1e3 / (double(s.current_it) != 0 ? double(s.current_it) : 1.0) * distrib(generator)
+        //       r.x + 1e3 / (double(s.step_it) != 0 ? double(s.step_it) : 1.0) * distrib(generator)
+        //     , r.y + 1e3 / (double(s.step_it) != 0 ? double(s.step_it) : 1.0) * distrib(generator)
         // };
 
         //generator depending on current_temperature

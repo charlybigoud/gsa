@@ -33,7 +33,7 @@ struct Generator
         // return Parameters{p.x + distrib(generator)};
         // return Parameters{p.x + 0.01 * s.current_temperature * distrib(generator)};
         // return Parameters{p.x + s.current_temperature * distrib(generator)};
-        return Parameters{p.x + s.current_temperature * s.current_it * distrib(generator)};
+        return Parameters{p.x + s.current_temperature * s.step_it * distrib(generator)};
     }
 };
 
