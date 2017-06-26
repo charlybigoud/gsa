@@ -8,9 +8,10 @@ void bar()
 
 void blank_line()
 {
+    std::cout << "\n\e[A";
+
     // std::cout << "\n\r\e[A";
     // std::cout << "\r";
-    // std::cout << std::string(100, ' ');
 
-    std::cout << "\r";
+    // std::cout << "\r";
 }
