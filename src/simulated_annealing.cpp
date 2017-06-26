@@ -21,6 +21,13 @@ double SimulatedAnnealing::random_value()
     return double(std::rand()) / double(RAND_MAX);
 }
 
+bool SimulatedAnnealing::stop(const double temperature, const double energy) const
+{
+    return (temperature >= stop_temperature)
+        or (energy >= min_energy)
+        ;
+}
+
 bool SimulatedAnnealing::metropolis_critieria(const double delta_e, const double temperature)
 {
     if (delta_e <= 0.0)

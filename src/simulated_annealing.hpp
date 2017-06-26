@@ -44,6 +44,8 @@ struct SimulatedAnnealing
 
     double random_value();
 
+    bool stop(const double temperature, const double energy) const;
+
     bool metropolis_critieria(const double delta_e, const double temperature);
 
     double temperature() const;
@@ -68,10 +70,7 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
 
     bar();
 
-    while (
-        (current_temperature >= stop_temperature)
-    // or (current_energy >= min_energy)
-    )
+    while ( stop(current_temperature, current_energy) )
     {
         auto backup = back_up(state);
 
