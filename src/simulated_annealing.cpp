@@ -23,7 +23,7 @@ double SimulatedAnnealing::random_value()
 
 bool SimulatedAnnealing::metropolis_critieria(const double delta_e, const double temperature)
 {
-    if (delta_e <= 0)
+    if (delta_e <= 0.0)
         return true;
     else if (random_value() <= std::exp(-delta_e / temperature) )
         return true;

@@ -73,20 +73,23 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
     // or (current_energy >= min_energy)
     )
     {
-        const State current_state = generate(state, *this);
-        current_energy = energy(current_state);
+        auto backup = back_up(state);
+
+        state = generate(state, *this);
+        current_energy = energy(state);
 
         if (metropolis_critieria(current_energy - validated_energy, current_temperature))
         {
-            state = current_state;
-            validated_energy = current_energy;
-
             print<Accepted>(*this);
+
+            validated_energy = current_energy;
         }
-        // else
-        // {
-        //     print<Rejected>(*this);
-        // }
+        else
+        {
+            print<Rejected>(*this);
+
+            backup.restore();
+        }
 
         if (step_it > iterations_per_temperature)
         {
