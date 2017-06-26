@@ -53,10 +53,11 @@ void print(const Solver& slr
 }
 
 template<typename Solver>
-void print(Final f, const Solver& s)
+void print(const Solver& slr, Final f)
 {
     std::cout << '\n' << std::endl;
-    std::cout << f("Final temperature: ") << f(s.current_temperature) << "\n";
-    std::cout << f("Final energy: ") << f(s.validated_energy) << "\n";
+    std::cout << f("Total iterations: ") << f(slr.total_it) << "\n";
+    std::cout << f("Final temperature: ") << f(slr.current_temperature) << "\n";
+    std::cout << f("Final energy: ") << f(slr.validated_energy) << "\n";
     std::cout << '\n' << std::endl;
 }
