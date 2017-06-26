@@ -6,6 +6,8 @@
 
 #include "colors.hpp"
 
+std::string delta();
+
 void bar();
 void blank_line();
 

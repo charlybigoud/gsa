@@ -1,5 +1,11 @@
 #include "display.hpp"
 
+std::string delta()
+{
+    return "\u0394";
+    // return "\xCE\x94";
+}
+
 void bar()
 {
     std::cout << color<Yellow>("\tT\t\tDT\t\tE") << std::endl;
