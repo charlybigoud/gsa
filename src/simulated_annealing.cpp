@@ -5,12 +5,14 @@ SimulatedAnnealing::SimulatedAnnealing(
     , const double stop_tmp
     , const int max_it
     , const double min_e
+    , const double a
     // , const double tol
 ) :
   start_temperature(start_tmp)
 , stop_temperature(stop_tmp)
 , iterations_per_temperature(max_it)
 , min_energy(min_e)
+, alpha(a)
 // , acceptation_tolerance(tol)
 {};
 
@@ -34,5 +36,5 @@ double SimulatedAnnealing::temperature() const
     // assert(step_it <= iterations_per_temperature);
     // return ( double(step_it) / double(iterations_per_temperature)) * current_temperature;
 
-    return 0.99 * current_temperature;
+    return alpha * current_temperature;
 }

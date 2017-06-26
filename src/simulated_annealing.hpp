@@ -24,6 +24,7 @@ struct SimulatedAnnealing
     double stop_temperature;
     int iterations_per_temperature;
     double min_energy;
+    double alpha;
     // double acceptation_tolerance;
 
     double current_temperature;
@@ -37,6 +38,7 @@ struct SimulatedAnnealing
         , const double stop_tmp = 0.0
         , const int max_it = 1000
         , const double min_e = 0.0
+        , const double a = 0.99
         // , const double tol = 0.1
     );
 
