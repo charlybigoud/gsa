@@ -28,6 +28,7 @@ struct SimulatedAnnealing
 
     double current_temperature;
     int current_it;
+    int total_it;
     double current_energy;
     double validated_energy;
 
@@ -58,6 +59,7 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
 
     //initiate system
     current_it = 0;
+    total_it = 0;
     current_temperature = start_temperature;
     validated_energy = energy(state);
     current_energy = validated_energy;
@@ -93,6 +95,8 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
         {
            ++current_it;
         }
+
+        ++total_it;
     }
 
     print(Final{}, *this);
