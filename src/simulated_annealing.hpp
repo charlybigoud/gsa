@@ -35,7 +35,7 @@ struct SimulatedAnnealing
     SimulatedAnnealing(
           const double start_tmp = 1e3
         , const double stop_tmp = 0.0
-        , const int it_max = 1000
+        , const int max_it = 1000
         , const double min_e = 0.0
         // , const double tol = 0.1
     );

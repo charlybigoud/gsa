@@ -3,13 +3,13 @@
 SimulatedAnnealing::SimulatedAnnealing(
       const double start_tmp
     , const double stop_tmp
-    , const int it_max
+    , const int max_it
     , const double min_e
     // , const double tol
 ) :
   start_temperature(start_tmp)
 , stop_temperature(stop_tmp)
-, iterations_per_temperature(it_max)
+, iterations_per_temperature(max_it)
 , min_energy(min_e)
 // , acceptation_tolerance(tol)
 {};
