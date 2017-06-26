@@ -42,11 +42,11 @@ struct SimulatedAnnealing
         // , const double tol = 0.1
     );
 
-    double random_value();
+    double random_value() const;
 
     bool stop(const double temperature, const double energy) const;
 
-    bool metropolis_critieria(const double delta_e, const double temperature);
+    bool metropolis_critieria(const double delta_e, const double temperature) const;
 
     double temperature() const;
 

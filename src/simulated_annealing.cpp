@@ -16,7 +16,7 @@ SimulatedAnnealing::SimulatedAnnealing(
 // , acceptation_tolerance(tol)
 {};
 
-double SimulatedAnnealing::random_value()
+double SimulatedAnnealing::random_value() const
 {
     return double(std::rand()) / double(RAND_MAX);
 }
@@ -28,7 +28,7 @@ bool SimulatedAnnealing::stop(const double temperature, const double energy) con
         ;
 }
 
-bool SimulatedAnnealing::metropolis_critieria(const double delta_e, const double temperature)
+bool SimulatedAnnealing::metropolis_critieria(const double delta_e, const double temperature) const
 {
     if (delta_e <= 0.0)
         return true;
