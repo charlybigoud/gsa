@@ -36,16 +36,18 @@ struct Final
     };
 };
 
-template<typename Color, typename Solver>
-void print(const Solver& s)
+template<typename Status, typename Solver>
+void print(const Solver& slr
+         , Status s = Status{}
+          )
 {
     blank_line();
 
-    // std::cout << Color{}(s.current_it) << "\t";
-    std::cout << Color{}(s.current_temperature) << "\t";
-    std::cout << Color{}(s.current_temperature - s.temperature()) << "\t";
-    std::cout << Color{}(s.validated_energy) << "\t";
-    // std::cout << s.d_energy << "\t";
+    // std::cout << s(slr.current_it) << "\t";
+    std::cout << s(slr.current_temperature) << "\t";
+    std::cout << s(slr.current_temperature - slr.temperature()) << "\t";
+    std::cout << s(slr.validated_energy) << "\t";
+    // std::cout << slr.d_energy << "\t";
 }
 
 template<typename Solver>
