@@ -8,8 +8,13 @@ std::string delta()
 
 void bar()
 {
-    std::cout << color<Yellow>("\tT\t\tDT\t\tE") << std::endl;
-    std::cout << color<Yellow>(std::string(42, '-')) << std::endl;
+    std::cout << std::setw(22) << color<Yellow>("#");
+    std::cout << std::setw(22) << color<Yellow>("T");
+    std::cout << std::setw(23) << color<Yellow>(delta() + "T");
+    std::cout << std::setw(22) << color<Yellow>("E");
+    std::cout << '\n';
+
+    std::cout << color<Yellow>(std::string(53, '-')) << std::endl;
 }
 
 void blank_line()

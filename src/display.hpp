@@ -45,10 +45,10 @@ void print(const Solver& slr
 {
     blank_line();
 
-    // std::cout << s(slr.current_it) << "\t";
-    std::cout << s(slr.current_temperature) << "\t";
-    std::cout << s(slr.current_temperature - slr.temperature()) << "\t";
-    std::cout << s(slr.validated_energy) << "\t";
+    std::cout << std::setw(22) << s(slr.total_it);
+    std::cout << std::setw(22) << s(slr.current_temperature);
+    std::cout << std::setw(22) << s(slr.current_temperature - slr.temperature());
+    std::cout << std::setw(22) << s(slr.validated_energy);
     // std::cout << slr.d_energy << "\t";
 }
 
