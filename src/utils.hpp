@@ -13,11 +13,13 @@ std::string to_string(const T& t)
     return strs.str();
 }
 
-//to save and restore stuff
-template<typename ... T> struct BackUp
+// save and restore T
+template<typename ... T>
+struct BackUp
 {
     std::tuple<T...> values;
     std::tuple<T&...> reference;
+
     void restore() { reference = values; }
 };
 
