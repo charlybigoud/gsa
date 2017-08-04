@@ -8,13 +8,13 @@ std::string delta()
 
 void bar()
 {
-    std::cout << std::setw(22) << color<Yellow>("#");
-    std::cout << std::setw(22) << color<Yellow>("T");
-    std::cout << std::setw(23) << color<Yellow>(delta() + "T");
-    std::cout << std::setw(22) << color<Yellow>("E");
+    std::cout << std::setw(22) << gsa::color<gsa::Yellow>("#");
+    std::cout << std::setw(22) << gsa::color<gsa::Yellow>("T");
+    std::cout << std::setw(23) << gsa::color<gsa::Yellow>(delta() + "T");
+    std::cout << std::setw(22) << gsa::color<gsa::Yellow>("E");
     std::cout << '\n';
 
-    std::cout << color<Yellow>(std::string(53, '-')) << std::endl;
+    std::cout << gsa::color<gsa::Yellow>(std::string(53, '-')) << std::endl;
 }
 
 void blank_line()

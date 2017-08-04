@@ -16,7 +16,7 @@ struct Accepted
     template<typename T>
     std::string operator()(const T& s)
     {
-        return color<Green>(s);
+        return gsa::color<gsa::Green>(s);
     };
 };
 
@@ -25,7 +25,7 @@ struct Rejected
     template<typename T>
     std::string operator()(const T& s)
     {
-        return color<Red>(s);
+        return gsa::color<gsa::Red>(s);
     };
 };
 
@@ -34,7 +34,7 @@ struct Final
     template<typename T>
     std::string operator()(const T& s)
     {
-        return color<Cyan>(s);
+        return gsa::color<gsa::Cyan>(s);
     };
 };
 
