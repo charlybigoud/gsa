@@ -68,7 +68,7 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
     validated_energy = energy(state);
     current_energy = validated_energy;
 
-    bar();
+    print(*this, Initial{});
 
     while ( stop(current_temperature, current_energy) )
     {
