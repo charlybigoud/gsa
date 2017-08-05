@@ -24,7 +24,7 @@ double SimulatedAnnealing::random_value() const
 bool SimulatedAnnealing::stop(const double temperature, const double energy) const
 {
     return (temperature >= stop_temperature)
-        or (energy >= min_energy)
+       and (energy > min_energy)
         ;
 }
 
