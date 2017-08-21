@@ -26,5 +26,5 @@ struct BackUp
 template<typename ... T>
 BackUp<T...> back_up(T& ... args)
 {
-    return BackUp<T...>{std::make_tuple(args...), std::tie(args...)};
+    return BackUp<T...>{ std::make_tuple(args...), std::tie(args...) };
 }
