@@ -25,7 +25,6 @@ struct SimulatedAnnealing
     int iterations_per_temperature;
     double min_energy;
     double alpha;
-    // double acceptation_tolerance;
 
     double current_temperature;
     int step_it;                    // the iteration counter in the temperture step
@@ -33,14 +32,11 @@ struct SimulatedAnnealing
     double validated_energy;
     double current_energy;
 
-    SimulatedAnnealing(
-          const double start_tmp = 1e3
-        , const double stop_tmp = 0.0
-        , const int max_it = 1000
-        , const double min_e = 0.0
-        , const double a = 0.99
-        // , const double tol = 0.1
-    );
+    SimulatedAnnealing(const double start_tmp = 1e3,
+                       const double stop_tmp = 0.0,
+                       const int max_it = 1000,
+                       const double min_e = 0.0,
+                       const double a = 0.99);
 
     double random_value() const;
 

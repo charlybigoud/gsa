@@ -1,19 +1,15 @@
 #include "simulated_annealing.hpp"
 
-SimulatedAnnealing::SimulatedAnnealing(
-      const double start_tmp
-    , const double stop_tmp
-    , const int max_it
-    , const double min_e
-    , const double a
-    // , const double tol
-) :
-  start_temperature(start_tmp)
-, stop_temperature(stop_tmp)
-, iterations_per_temperature(max_it)
-, min_energy(min_e)
-, alpha(a)
-// , acceptation_tolerance(tol)
+SimulatedAnnealing::SimulatedAnnealing(const double start_tmp,
+                                       const double stop_tmp,
+                                       const int max_it,
+                                       const double min_e,
+                                       const double a)
+: start_temperature(start_tmp),
+  stop_temperature(stop_tmp),
+  iterations_per_temperature(max_it),
+  min_energy(min_e),
+  alpha(a)
 {};
 
 double SimulatedAnnealing::random_value() const
