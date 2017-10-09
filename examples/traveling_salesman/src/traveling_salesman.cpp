@@ -59,42 +59,42 @@ int main()
     // City shanghai{+5000, -100};
     // Trajectory trajectory{clermont_ferrand, madrid, new_york, shanghai};
 
-    // City a0 {0.0, 0.0};
-    // City a1 {1.0, 0.0};
-    // City a2 {2.0, 0.0};
-    // City a3 {3.0, 0.0};
-    // City a4 {4.0, 0.0};
-    // City a5 {5.0, 0.0};
-    // City a6 {6.0, 0.0};
-    // City a7 {7.0, 0.0};
-    // City a8 {8.0, 0.0};
-    // City a9 {9.0, 0.0};
-    // City a10 {10.0, 0.0};
-    // City a11 {11.0, 0.0};
-    // City a12 {12.0, 0.0};
-    // City a13 {13.0, 0.0};
-    // City a14 {14.0, 0.0};
-    // City a15 {15.0, 0.0};
-    // Trajectory trajectory{a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15};
+    // City c0 {0.0, 0.0};
+    // City c1 {1.0, 0.0};
+    // City c2 {2.0, 0.0};
+    // City c3 {3.0, 0.0};
+    // City c4 {4.0, 0.0};
+    // City c5 {5.0, 0.0};
+    // City c6 {6.0, 0.0};
+    // City c7 {7.0, 0.0};
+    // City c8 {8.0, 0.0};
+    // City c9 {9.0, 0.0};
+    // City c10 {10.0, 0.0};
+    // City c11 {11.0, 0.0};
+    // City c12 {12.0, 0.0};
+    // City c13 {13.0, 0.0};
+    // City c14 {14.0, 0.0};
+    // City c15 {15.0, 0.0};
+    // Trajectory trajectory{c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15};
 
-    City a0 { 200.0,  800.0};
-    City a1 {3600.0, 2300.0};
-    City a2 {3100.0, 3300.0};
-    City a3 {4700.0, 5750.0};
-    City a4 {5400.0, 5750.0};
-    City a5 {5608.0, 7103.0};
-    City a6 {4493.0, 7102.0};
-    City a7 {3600.0, 6950.0};
-    Trajectory trajectory{a0, a1, a2, a3, a4, a5, a6, a7};
+    City c0 { 200.0,  800.0};
+    City c1 {3600.0, 2300.0};
+    City c2 {3100.0, 3300.0};
+    City c3 {4700.0, 5750.0};
+    City c4 {5400.0, 5750.0};
+    City c5 {5608.0, 7103.0};
+    City c6 {4493.0, 7102.0};
+    City c7 {3600.0, 6950.0};
+    Trajectory trajectory{c0, c1, c2, c3, c4, c5, c6, c7};
 
     std::cout << "Optimal trajectory: " << trajectory << std::endl;
     std::cout << "Optimal distance: " << energy(trajectory) << std::endl;
 
     SimulatedAnnealing sim(
-          1e3       //start temp
-        , 1e-1      //stop temp
-        , int(1e4)  //max it
-        , energy(trajectory)      //energy min
+          1e3                // start temp
+        , 1e-1               // stop temp
+        , int(1e4)           // max it
+        , energy(trajectory) // energy min
         );
 
     std::shuffle(begin(trajectory), end(trajectory), std::default_random_engine{});
