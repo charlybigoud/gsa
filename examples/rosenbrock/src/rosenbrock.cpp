@@ -23,10 +23,10 @@ int main()
     std::normal_distribution<> distrib(0, 1.0);
 
     SimulatedAnnealing sim(
-          1e3      //start temp
-        , 1e-3     //stop temp
-        , 1000     //max iteration per temperature step
-        , 1e-4     //energy min
+          1e3      // start temp
+        , 1e-3     // stop temp
+        , 1000     // max iteration per temperature step
+        , 1e-4     // energy min
         );
 
     auto ros_err = [](const Parameters& r)
@@ -38,24 +38,18 @@ int main()
 
     auto ros_gen = [&](const Parameters& r, const SimulatedAnnealing& s)
     {
-        //fixed generator
-        // return Parameters{
-        //       r.x + distrib(generator)
-        //     , r.y + distrib(generator)
-        // };
+        // fixed generator
+        // return Parameters{r.x + distrib(generator),
+        //                   r.y + distrib(generator)};
 
-        //generator depending on step_it
+        // generator depending on step_it
         // std::cout << (1e3 / (double(s.step_it))) << "\n";
-        // return Parameters{
-        //       r.x + 1e3 / (double(s.step_it) != 0 ? double(s.step_it) : 1.0) * distrib(generator)
-        //     , r.y + 1e3 / (double(s.step_it) != 0 ? double(s.step_it) : 1.0) * distrib(generator)
-        // };
+        // return Parameters{r.x + 1e3 / (double(s.step_it) != 0 ? double(s.step_it) : 1.0) * distrib(generator),
+        //                   r.y + 1e3 / (double(s.step_it) != 0 ? double(s.step_it) : 1.0) * distrib(generator)};
 
-        //generator depending on current_temperature
-        return Parameters{
-              r.x + s.current_temperature * distrib(generator)
-            , r.y + s.current_temperature * distrib(generator)
-        };
+        // generator depending on current_temperature
+        return Parameters{r.x + s.current_temperature * distrib(generator),
+                          r.y + s.current_temperature * distrib(generator)};
     };
 
     std::cout << "initial value: " << ros_parameters << std::endl;
