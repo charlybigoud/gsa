@@ -36,13 +36,11 @@ struct Generator
         std::mt19937 gen(rd());
         std::normal_distribution<> distrib(0, 1.0);
 
-        return PinholeCameraModel{
-              p.focal + s.step_it * distrib(gen)
-            , p.u0 + s.step_it * distrib(gen)
-            , p.v0 + s.step_it * distrib(gen)
-            , p.k + 1e-5 * distrib(gen)
-            , p.l + 1e-5 * distrib(gen)
-        };
+        return PinholeCameraModel{p.focal + s.step_it * distrib(gen),
+                                  p.u0 + s.step_it * distrib(gen),
+                                  p.v0 + s.step_it * distrib(gen),
+                                  p.k + 1e-5 * distrib(gen),
+                                  p.l + 1e-5 * distrib(gen)};
     }
 };
 
@@ -72,12 +70,12 @@ int main()
 
     PinholeCameraModel camera_to_optimize;
     Energy energy{observations};
-    Generator gen;
+    Generator generator;
 
     std::cout << "initial state:\n" << camera_to_optimize << std::endl;
 
     SimulatedAnnealing sim(1e6, 1e-3, int(1e4));
-    sim(energy, camera_to_optimize, gen);
+    sim(energy, camera_to_optimize, generator);
 
     std::cout << "final state:\n" << camera_to_optimize << std::endl;
 }
