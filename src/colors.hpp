@@ -35,6 +35,6 @@ namespace gsa
     template<typename Color, typename T>
     std::string color(const T& t)
     {
-        return color<Color>( to_string(t) );
+        return color<Color>( gsa::to_string(t) );
     }
 }

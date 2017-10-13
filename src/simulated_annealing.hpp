@@ -68,7 +68,7 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
 
     while ( stop(current_temperature, current_energy) )
     {
-        auto backup = back_up(state);
+        auto backup = gsa::back_up(state);
 
         state = generate(state, *this);
         current_energy = energy(state);
