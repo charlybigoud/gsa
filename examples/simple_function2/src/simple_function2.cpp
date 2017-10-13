@@ -24,7 +24,7 @@ struct Energy
 
 struct Generator
 {
-    Parameters operator()(Parameters const& p, const SimulatedAnnealing& s) const
+    Parameters operator()(const Parameters& p, const SimulatedAnnealing& s) const
     {
         std::random_device rd;
         std::mt19937 generator(rd());
