@@ -10,6 +10,11 @@ std::string delta();
 
 void blank_line();
 
+namespace gsa{
+  struct full_verbose{ void operator()() const { std::cout << '\n'; }; };
+  struct minimal_verbose{ void operator()() const { blank_line(); }; };
+}
+
 struct Initial
 {
     template<typename T>
@@ -47,8 +52,7 @@ struct Rejected
 };
 
 template<typename Solver>
-void print(const Solver& slr,
-           Initial i = Initial{})
+void print(const Solver& slr, Initial i = Initial{})
 {
     std::cout << '\n'
               << std::setw(22) << i("#")
@@ -57,28 +61,29 @@ void print(const Solver& slr,
               << std::setw(22) << i("E")
               << std::setw(22) << i(delta() + "E")
               << '\n'
-              << i(std::string(65, '-')) << std::endl;
+              << i(std::string(65, '-'))
+              << std::endl;
 }
 
 template<typename Solver>
 void print(const Solver& slr, Final f = Final{})
 {
     std::cout << "\n\n"
-              << f("Total iterations: ") << f(slr.total_it) << "\n"
-              << f("Final temperature: ") << f(slr.current_temperature) << "\n"
-              << f("Final energy: ") << f(slr.validated_energy) << "\n"
-              << '\n'
+              << f("Total iterations: ")  << f(slr.total_it) << '\n'
+              << f("Final temperature: ") << f(slr.current_temperature) << '\n'
+              << f("Final energy: ")      << f(slr.validated_energy)
+              << "\n\n"
               << std::endl;
 }
 
-template<typename Status, typename Solver>
-void print(const Solver& slr, Status s = Status{})
+template<typename Status, typename Verbose, typename Solver>
+void print(const Solver& slr, Verbose verbose = Verbose{}, Status s = Status{})
 {
-    blank_line();
-
     std::cout << std::setw(22) << s(slr.total_it)
               << std::setw(22) << s(slr.current_temperature)
               << std::setw(22) << s(slr.current_temperature - slr.temperature())
               << std::setw(22) << s(slr.validated_energy)
               << std::setw(22) << s(slr.current_energy - slr.validated_energy);
+
+    verbose();
 }

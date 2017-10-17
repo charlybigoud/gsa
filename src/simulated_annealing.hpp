@@ -46,12 +46,21 @@ struct SimulatedAnnealing
 
     double temperature() const;
 
-    template<typename Energy, typename State, typename Generator>
-    void operator()(const Energy& energy, State& state, const Generator& generate);
+    template<typename Energy,
+             typename State,
+             typename Generator,
+             typename Verbose = gsa::minimal_verbose>
+    void operator()(const Energy& energy,
+                    State& state,
+                    const Generator& generate,
+                    const Verbose& verbose = Verbose{});
 };
 
-template<typename Energy, typename State, typename Generator>
-void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Generator& generate)
+template<typename Energy, typename State, typename Generator, typename Verbose>
+void SimulatedAnnealing::operator()(const Energy& energy,
+                                    State& state,
+                                    const Generator& generate,
+                                    const Verbose& verbose)
 {
     //State to save in each temperature step
     // State state_to_save;
@@ -75,13 +84,13 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
 
         if (metropolis_critieria(current_energy - validated_energy, current_temperature))
         {
-            print<Accepted>(*this);
+            print<Accepted, Verbose>(*this);
 
             validated_energy = current_energy;
         }
         else
         {
-            print<Rejected>(*this);
+            print<Rejected, Verbose>(*this);
 
             backup.restore();
         }
@@ -99,6 +108,6 @@ void SimulatedAnnealing::operator()(const Energy& energy, State& state, const Ge
         ++total_it;
     }
 
-    print<Accepted>(*this);
+    print<Accepted, Verbose>(*this);
     print(*this, Final{});
 }
