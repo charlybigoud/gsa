@@ -40,8 +40,8 @@ struct Energy{
     {
         std::vector<float> distances;
 
-        for (int i = 1; i < t.size(); ++i)
-            distances.push_back(distance(t[i-1], t[i]));
+        for (size_t i = 1; i < t.size(); ++i)
+            distances.push_back(distance(t[i - 1], t[i]));
 
         return std::accumulate(begin(distances), end(distances), 0.0);
     }
